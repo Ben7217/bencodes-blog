@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="bencodes:javaEEApplication exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/bencodes_javaEEApplication_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="bencodes/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>
