@@ -22,4 +22,11 @@ public class PostServiceImpl implements PostService {
     public List<Post> getAllPosts() {
         return postDAO.getAllPosts();
     }
+
+    @Override
+    @Transactional
+    public void savePost(Post thePost) {
+
+        postDAO.savePost(thePost);
+    }
 }

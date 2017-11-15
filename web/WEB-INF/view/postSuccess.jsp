@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <head>
@@ -24,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="/">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -44,97 +45,58 @@
 <br><br>
 <!-- Page Content -->
 
-<button type="submit" class="btn" value="Add Post" onclick="window.location.href='showFormForAdd'; return false; ">Add Post</button>
-
 <div class="container container-fluid">
 
     <div class="row">
 
         <!-- Post Content Column -->
-        <div class="col-lg-8">
+        <div class="col-lg-8 align-content-center">
 
-            <!-- Title -->
-            <c:forEach var="tempPosts" items="${allPosts}">
-                <h1 class="mt-4" style="padding-top: 10px;">${tempPosts.title}</h1>
+            <div id="wrapper">
+                <div id="header">
+                    <br>
+                    <h2>Add Post</h2>
+                </div>
+            </div>
 
-                <!-- Author -->
-                <p class="lead">
-                    by
-                    <a href="#">${tempPosts.author}</a>
+            <div class="table" id="container">
+
+                <form:form action="savePost" modelAttribute="post" method="POST">
+
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td><label>Title:</label></td>
+                            <td><form:input path="title" /></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Author:</label></td>
+                            <td><form:input path="author" /></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Date:</label></td>
+                            <td><form:input path="date" /></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Post:</label></td>
+                            <td><form:input path="post" /></td>
+                        </tr>
+
+                        <tr>
+                            <td><label></label></td>
+                            <td><input type="submit" value="Save"></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </form:form>
+                <div style="clear: both;"></div>
+                <p>
+                    <a href="${pageContext.request.contextPath}/">Back to Home Page</a>
                 </p>
-
-                <hr>
-
-                <!-- Date/Time -->
-                <p>${tempPosts.date}</p>
-
-                <hr>
-
-                <!-- Preview Image -->
-                <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
-
-                <hr>
-
-                <!-- Post Content -->
-                <p class="lead">${tempPosts.post}</p>
-                <hr>
-
-                <!-- Comments Form -->
-                <div class="card my-4">
-                    <h5 class="card-header">Leave a Comment:</h5>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Single Comment -->
-                <div class="media mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                    <div class="media-body">
-                        <h5 class="mt-0">Commenter Name</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                        vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
-
-                <!-- Comment with nested comments -->
-                <div class="media mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                    <div class="media-body">
-                        <h5 class="mt-0">Commenter Name</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                        vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-                        <div class="media mt-4">
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <div class="media-body">
-                                <h5 class="mt-0">Commenter Name</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
-                                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
-
-                        <div class="media mt-4">
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <div class="media-body">
-                                <h5 class="mt-0">Commenter Name</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
-                                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </c:forEach>
         </div>
 
         <!-- Sidebar Widgets Column -->

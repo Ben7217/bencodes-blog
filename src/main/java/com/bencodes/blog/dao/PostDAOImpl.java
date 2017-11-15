@@ -32,14 +32,17 @@ public class PostDAOImpl implements PostDAO {
         return posts;
     }
 
-/*    @Override
-    public Post postPost(String) {
+    @Override
+    public void savePost(Post thePost) {
 
+        // get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
 
+        // save the post
+        currentSession.save(thePost);
 
-        Query<Post> theQuery = currentSession.createQuery("insert into Post (title,author,date,post)");
 
-        return null;
-    }*/
+    }
+
+
 }

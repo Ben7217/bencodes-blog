@@ -8,5 +8,6 @@ public interface PostDAO {
 
     List<Post> getAllPosts();
 
-/*    Post postPost();*/
+    void savePost(Post thePost);
+
 }
