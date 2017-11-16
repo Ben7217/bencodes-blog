@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.transaction.Transactional;
+import java.text.ParseException;
 import java.util.List;
 
 
@@ -25,8 +26,9 @@ public class PostServiceImpl implements PostService {
 
     @Override
     @Transactional
-    public void savePost(Post thePost) {
-
-        postDAO.savePost(thePost);
+    public void addPost(Post thePost) {
+        postDAO.addPost(thePost);
     }
+
+
 }

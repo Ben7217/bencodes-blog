@@ -7,6 +7,9 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -33,12 +36,10 @@ public class PostDAOImpl implements PostDAO {
     }
 
     @Override
-    public void savePost(Post thePost) {
+    public void addPost(Post thePost){
 
-        // get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
 
-        // save the post
         currentSession.save(thePost);
 
 

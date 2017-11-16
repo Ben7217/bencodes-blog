@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -48,11 +51,22 @@ public class IndexController {
     }
 
     @PostMapping("/savePost")
-    public String saveCustomer(@ModelAttribute("post") Post thePost) {
-        // save the customer using our service
+    public String savePost() throws ParseException {
 
-        postService.savePost(thePost);
-        return "allPosts";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = sdf.parse("2017-11-15");
+
+        // save the customer using our service
+        Post thePost = new Post();
+        thePost.setAuthor("Ben Test");
+        thePost.setDate(date);
+        thePost.setTitle("Test add post");
+        thePost.setPost("This is me testing the add post.");
+
+        postService.addPost(thePost);
+
+        System.out.println(thePost.toString()); //testing
+        return "success";
     }
 
 
