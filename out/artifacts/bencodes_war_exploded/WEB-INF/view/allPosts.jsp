@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <head>
     <title>Bencodes.tech</title>
-
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/favicon%20(1).ico" type="image/x-icon">
     <!-- CSS -->
     <link type="text/css"
           rel="stylesheet"
@@ -44,7 +44,7 @@
 <br><br>
 <!-- Page Content -->
 
-<button type="submit" class="btn" value="Add Post" onclick="window.location.href='showFormForAdd'; return false; ">Add Post</button>
+<button type="submit" class="btn btn-light" value="Add Post" onclick="window.location.href='showFormForAdd'; return false; ">Add Post</button>
 
 <div class="container container-fluid">
 
