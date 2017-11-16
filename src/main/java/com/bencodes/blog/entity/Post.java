@@ -8,6 +8,7 @@ import org.hibernate.search.annotations.Store;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.Date;
 
 
@@ -38,6 +39,9 @@ public class Post {
     @Column(name = "post", nullable = false, length = 60000)
     @org.hibernate.search.annotations.Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String post;
+
+
+
 
     public Post () {}
 
@@ -87,6 +91,7 @@ public class Post {
     public void setPost(String post) {
         this.post = post;
     }
+
 
     @Override
     public String toString() {

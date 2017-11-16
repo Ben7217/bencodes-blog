@@ -67,22 +67,22 @@
                         <tbody>
                         <tr>
                             <td><label>Title:</label></td>
-                            <td><form:input path="title" /></td>
+                            <td><input id="title" type="text" name="title"></td>
                         </tr>
 
                         <tr>
                             <td><label>Author:</label></td>
-                            <td><form:input path="author" /></td>
+                            <td><input id="author" type="text" name="author"></td>
                         </tr>
 
                         <tr>
                             <td><label>Date:</label></td>
-                            <td><form:input path="date" /></td>
+                            <td><input id="date" type="text" name="date"></td>
                         </tr>
 
                         <tr>
                             <td><label>Post:</label></td>
-                            <td><form:input path="post" /></td>
+                            <td><textarea id="post" type="text" name="post"></textarea></td>
                         </tr>
 
                         <tr>

@@ -6,10 +6,7 @@ import com.bencodes.blog.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -51,17 +48,20 @@ public class IndexController {
     }
 
     @PostMapping("/savePost")
-    public String savePost() throws ParseException {
+    public String savePost(@RequestParam("author") String author,
+                           @RequestParam("title") String title, @RequestParam("date") String date,
+                           @RequestParam("post") String post) throws ParseException {
+
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = sdf.parse("2017-11-15");
+        Date theDate = sdf.parse(date);
 
         // save the customer using our service
         Post thePost = new Post();
-        thePost.setAuthor("Ben Test");
-        thePost.setDate(date);
-        thePost.setTitle("Test add post");
-        thePost.setPost("This is me testing the add post.");
+        thePost.setAuthor(author);
+        thePost.setDate(theDate);
+        thePost.setTitle(title);
+        thePost.setPost(post);
 
         postService.addPost(thePost);
 
