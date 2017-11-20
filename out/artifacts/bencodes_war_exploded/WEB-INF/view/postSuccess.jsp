@@ -67,29 +67,29 @@
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input class="form-control input-group-lg mx-auto" type="text" name="title" id="title"
-                           placeholder="Your title...">
+                           placeholder="Your title..." required>
                 </div>
 
                 <div class="form-group">
                     <label for="author">Author</label>
                     <input class="form-control input-group-lg" placeholder="Who are you?" id="author"
-                           type="text" name="author">
+                           type="text" name="author" required>
                 </div>
 
                 <div class="form-group">
                     <label for="date">Date*</label>
                     <input class="form-control input-group-lg" placeholder="Todays date (required)" id="date"
-                           type="text" name="date" required>
+                           type="date" name="date" required>
                 </div>
 
                 <div class="form-group">
                     <label for="post">Post</label>
                     <textarea class="form-control input-group-lg" placeholder="Your content" id="post"
-                              type="text" name="post"></textarea>
+                              type="text" name="post" required></textarea>
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" value="Save Post" class="btn btn-dark" onclick="window.location.href='savePost'">Add Post</button>
+                    <button type="submit" value="Save Post" class="btn btn-dark">Add Post</button>
                 </div>
 
             </form>
@@ -182,7 +182,7 @@
 
 
 <!-- JS/jQuery -->
-<script src="${pageContext.request.contextPath}jquery/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <head>
@@ -25,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="/">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -38,6 +37,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -45,9 +47,7 @@
 <br><br>
 <!-- Page Content -->
 
-<button type="submit" class="btn btn-light" value="Add Post" onclick="window.location.href='showFormForAdd'; return false; ">Add
-    Post
-</button>
+<button type="submit" class="btn btn-light" value="Add Post" onclick="window.location.href='showFormForAdd'; return false; ">Add Post</button>
 
 <div class="container container-fluid">
 
@@ -56,12 +56,88 @@
         <!-- Post Content Column -->
         <div class="col-lg-8">
 
-            <h1>Success!</h1>
-            <h2>Your post has been added!</h2>
+            <!-- Title -->
+            <c:forEach var="tempPosts" items="${allPosts}">
+                <h1 class="mt-4" style="padding-top: 10px;">${tempPosts.title}</h1>
 
-            <br>
+                <!-- Author -->
+                <p class="lead">
+                    by
+                    <a href="#">${tempPosts.author}</a>
+                </p>
 
-            <a href="/">Back to home page</a>
+                <hr>
+
+                <!-- Date/Time -->
+                <p>${tempPosts.date}</p>
+
+                <hr>
+
+                <!-- Preview Image -->
+                <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+
+                <hr>
+
+                <!-- Post Content -->
+                <p class="lead">${tempPosts.post}</p>
+                <hr>
+
+                <!-- Comments Form -->
+                <div class="card my-4">
+                    <h5 class="card-header">Leave a Comment:</h5>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Single Comment -->
+                <div class="media mb-4">
+                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                    <div class="media-body">
+                        <h5 class="mt-0">Commenter Name</h5>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                        vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    </div>
+                </div>
+
+                <!-- Comment with nested comments -->
+                <div class="media mb-4">
+                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                    <div class="media-body">
+                        <h5 class="mt-0">Commenter Name</h5>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                        vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                        <div class="media mt-4">
+                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                            <div class="media-body">
+                                <h5 class="mt-0">Commenter Name</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
+                                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            </div>
+                        </div>
+
+                        <div class="media mt-4">
+                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                            <div class="media-body">
+                                <h5 class="mt-0">Commenter Name</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
+                                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </c:forEach>
         </div>
 
         <!-- Sidebar Widgets Column -->
@@ -146,5 +222,6 @@
 <!-- JS/jQuery -->
 <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/validator.js/validator.js"></script>
 </body>
 </html>

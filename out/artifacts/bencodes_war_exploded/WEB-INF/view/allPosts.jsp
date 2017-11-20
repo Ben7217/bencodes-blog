@@ -217,7 +217,7 @@
 
 
 <!-- JS/jQuery -->
-<script src="${pageContext.request.contextPath}jquery/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

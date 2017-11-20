@@ -26,7 +26,7 @@ public class PostDAOImpl implements PostDAO {
 
         // create a query
 
-        Query<Post> theQuery = currentSession.createQuery("from Post order by date", Post.class);
+        Query<Post> theQuery = currentSession.createQuery("from Post order by date desc", Post.class);
 
         // execute query and get result list
         List<Post> posts = theQuery.getResultList();

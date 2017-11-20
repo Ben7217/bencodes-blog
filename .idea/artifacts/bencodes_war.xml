@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="bencodes:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="spring-security-demo.war">
+      <element id="artifact" artifact-name="bencodes:war exploded" />
+    </root>
+  </artifact>
+</component>
