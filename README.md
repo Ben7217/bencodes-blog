@@ -6,3 +6,5 @@ The goal was to build a complete blogging system from the ground up and eventual
 
 As of 11/21/17 I am currently working on integrating Spring Security and the ability to register/login as an admin
 to make blog posts. 
+
+[[https://github.com/username/repository/blob/master/img/octocat.png|alt=octocat]]
